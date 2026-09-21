@@ -4,49 +4,165 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Crispy Chicken Burger - 3D</title>
+  <title>Crispy Chicken Burger</title>
 
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
+      min-height: 100vh;
       background: #000000;
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Large KFC background text */
+    .kfc-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: clamp(180px, 35vw, 550px);
+      font-weight: 900;
+      letter-spacing: 10px;
+
+      color: rgba(255, 255, 255, 0.045);
+
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Main content */
+    .content {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Heading */
+    .title {
+      margin-top: 35px;
       text-align: center;
+      z-index: 3;
     }
 
-    h1 {
-      margin: 20px 0;
-      color: white;
+    .title h1 {
+      margin: 0;
+
+      font-size: clamp(28px, 5vw, 55px);
+      font-weight: 800;
+      letter-spacing: 4px;
+
+      color: #ffffff;
+
+      text-transform: uppercase;
     }
 
+    .title p {
+      margin: 10px 0 0;
+
+      font-size: 14px;
+      letter-spacing: 5px;
+
+      color: rgba(255, 255, 255, 0.6);
+
+      text-transform: uppercase;
+    }
+
+    /* 3D Burger */
     model-viewer {
       width: 100%;
-      height: 80vh;
-      background: #000000;
+      height: calc(100vh - 150px);
+
+      background: transparent;
+
+      --poster-color: transparent;
+
+      z-index: 2;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+
+      .title {
+        margin-top: 25px;
+      }
+
+      .title h1 {
+        font-size: 26px;
+        letter-spacing: 2px;
+      }
+
+      .title p {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .kfc-background {
+        font-size: 150px;
+      }
+
+      model-viewer {
+        height: calc(100vh - 130px);
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <h1>🍔 Crispy Chicken Burger</h1>
+  <!-- Large background KFC -->
+  <div class="kfc-background">
+    KFC
+  </div>
 
-  <model-viewer
-    src="Meshy_AI_Crispy_Chicken_Burger_0921044934_texture.glb"
-    alt="3D Crispy Chicken Burger"
-    camera-controls
-    auto-rotate
-    rotation-per-second="30deg"
-    shadow-intensity="1"
-    exposure="1"
-    interaction-prompt="auto"
-    ar>
-  </model-viewer>
+  <div class="content">
+
+    <!-- Heading -->
+    <div class="title">
+      <h1>CRISPY CHICKEN BURGER</h1>
+      <p>Explore in 3D</p>
+    </div>
+
+    <!-- 3D Burger -->
+    <model-viewer
+      src="Meshy_AI_Crispy_Chicken_Burger_0921044934_texture.glb"
+      alt="3D Crispy Chicken Burger"
+
+      camera-controls
+      auto-rotate
+      rotation-per-second="25deg"
+
+      shadow-intensity="1"
+      exposure="1"
+
+      interaction-prompt="auto"
+
+      min-camera-orbit="auto auto 1m"
+      max-camera-orbit="auto auto 5m"
+
+      ar>
+    </model-viewer>
+
+  </div>
 
 </body>
 </html>
