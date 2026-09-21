@@ -13,6 +13,57 @@
   <style>
     body {
       margin: 0;
+      background: #000000;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px 0;
+      color: white;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 80vh;
+      background: #000000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🍔 Crispy Chicken Burger</h1>
+
+  <model-viewer
+    src="Meshy_AI_Crispy_Chicken_Burger_0921044934_texture.glb"
+    alt="3D Crispy Chicken Burger"
+    camera-controls
+    auto-rotate
+    rotation-per-second="30deg"
+    shadow-intensity="1"
+    exposure="1"
+    interaction-prompt="auto"
+    ar>
+  </model-viewer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crispy Chicken Burger - 3D</title>
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
       background: #f5f5f5;
       font-family: Arial, sans-serif;
       text-align: center;
